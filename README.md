@@ -160,10 +160,12 @@ Be sure to install the following tools:
 
 This plugin will follow changes of `tree-sitter-gh-actions-expressions`:
 
+- [ABI version][ts-gh-actions-expressions-title]
 - [`queries`][ts-gh-actions-expressions-queries] updates
 - [`grammar`][ts-gh-actions-expressions-grammar] updates
 
 [ts-gh-actions-expressions]: https://github.com/hdoc1509/tree-sitter-gh-actions-expressions
+[ts-gh-actions-expressions-title]: https://github.com/hdoc1509/tree-sitter-gh-actions-expressions#tree-sitter-gh-actions-expressions
 [ts-gh-actions-expressions-grammar]: https://github.com/hdoc1509/tree-sitter-gh-actions-expressions/tree/master/grammar.js
 [ts-gh-actions-expressions-queries]: https://github.com/hdoc1509/tree-sitter-gh-actions-expressions/tree/master/queries
 [ts-gh-actions-expressions-version]: https://github.com/Hdoc1509/tree-sitter-gh-actions-expressions/blob/master/CHANGELOG.md#030
