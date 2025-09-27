@@ -151,21 +151,31 @@ If you found the following error:
 > `X` and `Y` are the interval of ABI versions supported by neovim. `Z` is the
 > ABI version that was used to develop the parser.
 
-Be sure to install the following tools:
+1. Install the following tools:
 
-- [`Node.js`][nodejs]
-- [`tree-sitter cli`][tree-sitter-cli]
+   - [`Node.js`][nodejs]
+   - [`tree-sitter cli`][tree-sitter-cli]
+
+2. Add the `from_grammar` option to the `setup` function of the
+   `gh-actions.tree-sitter` module:
+
+   ```lua
+   require("gh-actions.tree-sitter").setup({ from_grammar = true })
+   ```
+
+3. Reload your neovim config.
+
+4. Run `:TSInstall gh_actions_expressions` to re-install the parser with the
+   correct ABI version.
 
 ## Updates
 
 This plugin will follow changes of `tree-sitter-gh-actions-expressions`:
 
-- [ABI version][ts-gh-actions-expressions-title]
 - [`queries`][ts-gh-actions-expressions-queries] updates
 - [`grammar`][ts-gh-actions-expressions-grammar] updates
 
 [ts-gh-actions-expressions]: https://github.com/hdoc1509/tree-sitter-gh-actions-expressions
-[ts-gh-actions-expressions-title]: https://github.com/hdoc1509/tree-sitter-gh-actions-expressions#tree-sitter-gh-actions-expressions
 [ts-gh-actions-expressions-grammar]: https://github.com/hdoc1509/tree-sitter-gh-actions-expressions/tree/master/grammar.js
 [ts-gh-actions-expressions-queries]: https://github.com/hdoc1509/tree-sitter-gh-actions-expressions/tree/master/queries
 [ts-gh-actions-expressions-version]: https://github.com/Hdoc1509/tree-sitter-gh-actions-expressions/blob/master/CHANGELOG.md#030
