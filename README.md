@@ -1,7 +1,7 @@
 # gh-actions.nvim
 
-Plugin that adds support for [Github Actions
-expressions][gh-actions-expressions] in Neovim.
+Plugin that improves support for [Github Actions][gh-actions-docs] files
+in Neovim.
 
 ![Github Actions Expression syntax highlight](https://github.com/user-attachments/assets/1d098353-a22d-411c-8a4b-1ad97f64132a)
 
@@ -10,8 +10,8 @@ expressions][gh-actions-expressions] in Neovim.
 - Syntax highlighting for Github Actions expressions thanks to
   [`tree-sitter-gh-actions-expressions`][ts-gh-actions-expressions]. Compatible
   with [`^0.3.0`][ts-gh-actions-expressions-version]
-- [New predicate](#is-gh-actions-file-predicate)
-- [LSP configuration](#lsp-configuration)
+- [New predicate](#is-gh-actions-file-predicate) with its [LSP
+  configuration](#lsp-configuration)
 
 ## Requirements
 
@@ -176,6 +176,6 @@ This plugin will follow changes of `tree-sitter-gh-actions-expressions`:
 [nodejs]: https://nodejs.org/en/download
 [tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/tree/master/crates/cli
 [lspconfig]: (https://github.com/neovim/nvim-lspconfig)
-[gh-actions-expressions]: https://docs.github.com/en/actions/reference/evaluate-expressions-in-workflows-and-actions
+[gh-actions-docs]: https://docs.github.com/en/actions/reference/workflows-and-actions
 [vim-lsp-config]: https://neovim.io/doc/user/lsp.html#lsp-config
 [rtp]: https://neovim.io/doc/user/options.html#'runtimepath'
