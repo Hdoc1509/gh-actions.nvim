@@ -31,7 +31,7 @@ in Neovim.
   dependencies = { "Hdoc1509/gh-actions.nvim" },
   config = function()
     -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
-    require("gh-actions-expressions.tree-sitter").setup()
+    require("gh-actions.tree-sitter").setup()
 
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
@@ -53,7 +53,7 @@ use({
   requires = { "Hdoc1509/gh-actions.nvim" },
   config = function()
     -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
-    require("gh-actions-expressions.tree-sitter").setup()
+    require("gh-actions.tree-sitter").setup()
 
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
@@ -73,7 +73,7 @@ Check if the buffer matches the pattern `.github/workflows/*.ya?ml`.
 
 ## LSP configuration
 
-The `gh-actions-expressions.ts-query-ls` module exports a configuration for
+The `gh-actions.ts-query-ls` module exports a configuration for
 `ts_query_ls` server in order to register the custom `is-gh-actions-file?`
 predicate used by this plugin.
 
@@ -88,11 +88,11 @@ predicate used by this plugin.
 
 ```lua
 local lspconfig = require('lspconfig')
-local gh_actions_expressions_ts_query_ls = require('gh-actions-expressions.ts-query-ls')
+local gh_actions = require('gh-actions.ts-query-ls')
 
 lspconfig.ts_query_ls.setup(vim.tbl_deep_extend('force', {
   -- your settings
-}, gh_actions_expressions_ts_query_ls))
+}, gh_actions.expressions))
 ```
 
 ### [vim.lsp.config][vim-lsp-config] + neovim >= 0.11
@@ -100,11 +100,11 @@ lspconfig.ts_query_ls.setup(vim.tbl_deep_extend('force', {
 <!-- TODO: need to check if it works correctlty -->
 
 ```lua
-local gh_actions_expressions_ts_query_ls = require('gh-actions-expressions.ts-query-ls')
+local gh_actions = require('gh-actions.ts-query-ls')
 
 vim.lsp.config('ts_query_ls', vim.tbl_deep_extend('force', {
   -- your settings
-}, gh_actions_expressions_ts_query_ls))
+}, gh_actions.expressions))
 vim.lsp.enable('ts_query_ls')
 ```
 
@@ -117,11 +117,11 @@ vim.lsp.enable('ts_query_ls')
 > `<rtp>` is your [`runtimepath`][rtp]
 
 ```lua
-local gh_actions_expressions_config = require('gh-actions-expressions.ts-query-ls')
+local gh_actions = require('gh-actions.ts-query-ls')
 
 return vim.tbl_deep_extend('force', {
   -- your settings
-}, gh_actions_expressions_config)
+}, gh_actions.expressions)
 ```
 
 Then, in your `init.lua`:
