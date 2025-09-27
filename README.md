@@ -1,9 +1,9 @@
-# gh-actions-expressions.nvim
+# gh-actions.nvim
 
 Plugin that adds support for [Github Actions
 expressions][gh-actions-expressions] in Neovim.
 
-![Github Actions Expression syntax highlight](https://github.com/user-attachments/assets/ed984ba9-0d08-4e2d-b09f-6fd13191ce82)
+![Github Actions Expression syntax highlight](https://github.com/user-attachments/assets/1d098353-a22d-411c-8a4b-1ad97f64132a)
 
 ## Features
 
@@ -28,7 +28,7 @@ expressions][gh-actions-expressions] in Neovim.
 ```lua
 {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = { "Hdoc1509/gh-actions-expresiions.nvim" },
+  dependencies = { "Hdoc1509/gh-actions.nvim" },
   config = function()
     -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
     require("gh-actions-expressions.tree-sitter").setup()
@@ -50,7 +50,7 @@ expressions][gh-actions-expressions] in Neovim.
 ```lua
 use({
   "nvim-treesitter/nvim-treesitter",
-  requires = { "Hdoc1509/gh-actions-expresiions.nvim" },
+  requires = { "Hdoc1509/gh-actions.nvim" },
   config = function()
     -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
     require("gh-actions-expressions.tree-sitter").setup()
@@ -84,7 +84,7 @@ predicate used by this plugin.
 ### [nvim-lspconfig][lspconfig] + neovim < 0.11
 
 > [!IMPORTANT]
-> Be sure to set `gh-actions-expressions.nvim` as a dependency
+> Be sure to set `gh-actions.nvim` as a dependency
 
 ```lua
 local lspconfig = require('lspconfig')
