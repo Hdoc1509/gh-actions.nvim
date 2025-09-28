@@ -19,8 +19,7 @@ function M.setup(opts)
   ---@diagnostic disable-next-line: inject-field
   parser_configs.gh_actions_expressions = {
     install_info = {
-      -- url = "https://github.com/Hdoc1509/tree-sitter-gh-actions-expressions",
-      url = "~/dev/tree-sitter-gh-actions-expressions",
+      url = "https://github.com/Hdoc1509/tree-sitter-gh-actions-expressions",
       files = { "src/parser.c" },
       branch = "release",
       requires_generate_from_grammar = opts.from_grammar,
