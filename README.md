@@ -168,6 +168,11 @@ If you found the following error:
 4. Run `:TSInstall gh_actions_expressions` to re-install the parser with the
    correct ABI version.
 
+### Errors not related to neovim
+
+Check the [Troubleshooting section of
+`tree-sitter-gh-actions-expressions`][ts-gh-actions-expressions-troubleshooting].
+
 ## Updates
 
 This plugin will follow changes of `tree-sitter-gh-actions-expressions`:
@@ -179,6 +184,7 @@ This plugin will follow changes of `tree-sitter-gh-actions-expressions`:
 [ts-gh-actions-expressions-grammar]: https://github.com/hdoc1509/tree-sitter-gh-actions-expressions/tree/master/grammar.js
 [ts-gh-actions-expressions-queries]: https://github.com/hdoc1509/tree-sitter-gh-actions-expressions/tree/master/queries
 [ts-gh-actions-expressions-version]: https://github.com/Hdoc1509/tree-sitter-gh-actions-expressions/blob/master/CHANGELOG.md#030
+[ts-gh-actions-expressions-troubleshooting]: https://github.com/Hdoc1509/tree-sitter-gh-actions-expressions#troubleshooting
 [gitignore]: https://github.com/shunsambongi/tree-sitter-gitignore
 [json]: https://github.com/tree-sitter/tree-sitter-json
 [yaml]: https://github.com/tree-sitter-grammars/tree-sitter-yaml
