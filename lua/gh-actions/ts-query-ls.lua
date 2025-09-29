@@ -7,7 +7,7 @@ M.expressions = {
         parameters = {
           { type = "string", arity = "optional" },
         },
-        description = "Check if the buffer matches the pattern `.github/workflows/*.ya?ml`.",
+        description = "Check if the buffer matches the name pattern `.github/workflows/*.ya?ml`.",
       },
     },
   },
