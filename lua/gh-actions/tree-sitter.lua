@@ -30,7 +30,10 @@ function M.setup(opts)
     "is-gh-actions-file?",
     function(_, _, bufnr)
       local filename = vim.api.nvim_buf_get_name(bufnr)
+
       return filename:match("%.github/workflows/.-%.ya?ml") ~= nil
+        or filename:match("tree%-sitter%-gh%-actions%-expressions/README%.md")
+          ~= nil
     end,
     ---@diagnostic disable-next-line: param-type-mismatch
     predicate_options
