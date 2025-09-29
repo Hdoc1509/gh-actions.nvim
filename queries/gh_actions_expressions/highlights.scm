@@ -23,8 +23,8 @@
 ; NOTE: higher priority is applied in order to override injection's highlighting
 ; of `regex` and `bash` parsers
 (context
-  (identifier) @function.builtin
-  (#any-of? @function.builtin
+  (identifier) @variable.builtin
+  (#any-of? @variable.builtin
     "github" "env" "vars" "job" "jobs" "steps" "runner" "secrets" "strategy" "matrix" "needs"
     "inputs")
   (#set! priority 110))
@@ -42,7 +42,10 @@
 (index) @punctuation.delimiter
 
 (function_call
-  function: (identifier) @function)
+  function: (identifier) @function.builtin
+  (#any-of? @function.builtin
+    "contains" "startsWith" "endsWith" "format" "join" "toJSON" "fromJSON" "hashFiles" "success"
+    "always" "cancelled" "failure"))
 
 (function_call
   [
