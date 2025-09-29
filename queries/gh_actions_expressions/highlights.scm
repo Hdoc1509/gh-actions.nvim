@@ -16,7 +16,7 @@
   [
     "{"
     "}"
-  ] @punctuation.bracket)
+  ] @punctuation.special)
 
 (scape_sequence) @string.escape
 
