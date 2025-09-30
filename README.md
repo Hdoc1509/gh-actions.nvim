@@ -74,8 +74,8 @@ Check if the buffer matches the pattern `.github/workflows/*.ya?ml`.
 ## LSP configuration
 
 The `gh-actions.ts-query-ls` module exports a configuration for
-`ts_query_ls` server in order to register the custom `is-gh-actions-file?`
-predicate used by this plugin.
+[`ts_query_ls`][ts-query-ls] server in order to register the custom
+`is-gh-actions-file?` predicate used by this plugin.
 
 > [!NOTE]
 > This is only needed if you will use the `is-gh-actions-file?` predicate in
@@ -195,3 +195,4 @@ This plugin will follow changes of `tree-sitter-gh-actions-expressions`:
 [gh-actions-docs]: https://docs.github.com/en/actions/reference/workflows-and-actions
 [vim-lsp-config]: https://neovim.io/doc/user/lsp.html#lsp-config
 [rtp]: https://neovim.io/doc/user/options.html#'runtimepath'
+[ts-query-ls]: https://github.com/ribru17/ts_query_ls
