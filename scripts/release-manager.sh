@@ -12,6 +12,8 @@ if ! [[ -f $CHANGELOG_FILE ]]; then
 
   sed -i "5 s/.*/### Initial release/" "$CHANGELOG_FILE"
 
+  reminder_message
+
   exit 0
 fi
 
