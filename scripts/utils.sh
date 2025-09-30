@@ -42,8 +42,6 @@ reminder_message() {
   local new_version
   new_version=$(sed --quiet '3p' "$CHANGELOG_FILE" | awk '{ print $2 }')
 
-  echo && info_log "If all changes are correct, update lock file by running:"
-  command_snippet "pnpm" "install"
   echo && warn_log "Don't forget to commit the changes:"
   command_snippet "git" "commit -m 'chore: release v$new_version'"
   echo && warn_log "Don't forget to generate git tags:"
