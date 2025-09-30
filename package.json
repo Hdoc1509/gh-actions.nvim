@@ -1,6 +1,6 @@
 {
   "name": "gh-actions.nvim",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "license": "Apache-2.0",
   "author": "Héctor Ochoa <hector.ochoa.dev@gmail.com>",
