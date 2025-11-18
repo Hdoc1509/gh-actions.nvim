@@ -26,15 +26,22 @@ function M.setup(opts)
     },
   }
 
+  ---@param source integer|string
+  local function is_gh_actions_file(_, _, source)
+    if type(source) ~= "number" then
+      return false
+    end
+
+    local filename = vim.api.nvim_buf_get_name(source)
+
+    return filename:match("%.github/workflows/.-%.ya?ml") ~= nil
+      or filename:match("tree%-sitter%-gh%-actions%-expressions/README%.md")
+        ~= nil
+  end
+
   vim.treesitter.query.add_predicate(
     "is-gh-actions-file?",
-    function(_, _, bufnr)
-      local filename = vim.api.nvim_buf_get_name(bufnr)
-
-      return filename:match("%.github/workflows/.-%.ya?ml") ~= nil
-        or filename:match("tree%-sitter%-gh%-actions%-expressions/README%.md")
-          ~= nil
-    end,
+    is_gh_actions_file,
     ---@diagnostic disable-next-line: param-type-mismatch
     predicate_options
   )
