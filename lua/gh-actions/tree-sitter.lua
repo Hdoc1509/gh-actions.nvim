@@ -35,7 +35,8 @@ function M.setup(opts)
     vim.api.nvim_create_autocmd("User", {
       pattern = "TSUpdate",
       callback = function()
-        ts_parsers.gh_actions_expressions = { install_info = install_info }
+        require("nvim-treesitter.parsers").gh_actions_expressions =
+          { install_info = install_info }
       end,
     })
   end
