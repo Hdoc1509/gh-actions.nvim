@@ -10,6 +10,7 @@ local predicate_options = has_v_0_10 and {} or nil
 
 ---@param opts? GhActionsOpts
 function M.setup(opts)
+  -- NOTE: allow a generic table instead?
   opts = vim.tbl_deep_extend("force", { from_grammar = false }, opts or {})
 
   local ts_parsers = require("nvim-treesitter.parsers")
@@ -19,6 +20,8 @@ function M.setup(opts)
     -- https://github.com/nvim-treesitter/nvim-treesitter/commit/214cfcf851d95a4c4f2dc7526b95ce9d31c88a76
     files = { "src/parser.c" },
     branch = "release",
+    -- compatibility prior to disuse of `requires_generate_from_grammar` option:
+    -- https://github.com/nvim-treesitter/nvim-treesitter/commit/c70daa36dcc2fdae113637fba76350daaf62dba5
     requires_generate_from_grammar = opts.from_grammar,
   }
 
