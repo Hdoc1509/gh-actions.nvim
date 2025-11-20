@@ -28,18 +28,17 @@ in Neovim.
 ```lua
 {
   "nvim-treesitter/nvim-treesitter",
+  branch = 'main',
   dependencies = { "Hdoc1509/gh-actions.nvim" },
   config = function()
-    -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
+    -- NOTE: register parser before installation
     require("gh-actions.tree-sitter").setup()
 
-    require("nvim-treesitter.configs").setup({
-      ensure_installed = {
-        "gh_actions_expressions", -- required
-        "gitignore", -- optional
-        "json", -- optional
-        "yaml", -- required
-      }
+    require("nvim-treesitter").install({
+      "gh_actions_expressions", -- required
+      "gitignore", -- optional
+      "json", -- optional
+      "yaml", -- required
     })
   end,
 }
@@ -50,22 +49,54 @@ in Neovim.
 ```lua
 use({
   "nvim-treesitter/nvim-treesitter",
+  branch = 'main',
   requires = { "Hdoc1509/gh-actions.nvim" },
   config = function()
-    -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
+    -- NOTE: register parser before installation
     require("gh-actions.tree-sitter").setup()
 
-    require("nvim-treesitter.configs").setup({
-      ensure_installed = {
-        "gh_actions_expressions", -- required
-        "gitignore", -- optional
-        "json", -- optional
-        "yaml", -- required
-      }
+    require("nvim-treesitter").install({
+      "gh_actions_expressions", -- required
+      "gitignore", -- optional
+      "json", -- optional
+      "yaml", -- required
     })
   end,
 })
 ```
+
+### Parser installation for previous `nvim-treesitter` versions
+
+<details>
+  <summary>Click to expand</summary>
+
+#### `ensure_install` of `main` branch
+
+```lua
+require("nvim-treesitter").setup({
+  ensure_install = {
+    "gh_actions_expressions", -- required
+    "gitignore", -- optional
+    "json", -- optional
+    "yaml", -- required
+  }
+})
+```
+
+#### `configs` module of old `master` branch
+
+```lua
+require("nvim-treesitter.configs").setup({
+  ensure_installed = {
+    "gh_actions_expressions", -- required
+    "gitignore", -- optional
+    "json", -- optional
+    "yaml", -- required
+  }
+})
+```
+
+</details>
 
 ## `is-gh-actions-file?` predicate
 
@@ -196,3 +227,5 @@ This plugin will follow changes of `tree-sitter-gh-actions-expressions`:
 [vim-lsp-config]: https://neovim.io/doc/user/lsp.html#lsp-config
 [rtp]: https://neovim.io/doc/user/options.html#'runtimepath'
 [ts-query-ls]: https://github.com/ribru17/ts_query_ls
+
+<!-- markdownlint-disable-file MD033 -->
