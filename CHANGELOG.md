@@ -1,5 +1,13 @@
 # gh-actions.nvim
 
+## 0.1.1
+
+### Patch Changes
+
+- Handle changes of predicate handler from neovim 0.10 ([#3](https://github.com/Hdoc1509/gh-actions.nvim/pull/3))
+
+- Handle changes of `nvim-treesitter` in `main` branch ([#3](https://github.com/Hdoc1509/gh-actions.nvim/pull/3))
+
 ## 0.1.0
 
 ### Initial release
