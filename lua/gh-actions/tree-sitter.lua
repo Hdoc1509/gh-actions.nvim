@@ -12,19 +12,21 @@ local predicate_options = has_v_0_10 and {} or nil
 function M.setup(opts)
   opts = vim.tbl_deep_extend("force", { from_grammar = false }, opts or {})
 
-  local ts_parsers = require("nvim-treesitter.parsers")
-
-  local parser_configs = ts_parsers.get_parser_configs()
-
-  ---@diagnostic disable-next-line: inject-field
-  parser_configs.gh_actions_expressions = {
-    install_info = {
-      url = "https://github.com/Hdoc1509/tree-sitter-gh-actions-expressions",
-      files = { "src/parser.c" },
-      branch = "release",
-      requires_generate_from_grammar = opts.from_grammar,
-    },
-  }
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "TSUpdate",
+    callback = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require("nvim-treesitter.parsers").gh_actions_expressions = {
+        ---@diagnostic disable-next-line: missing-fields
+        install_info = {
+          url = "https://github.com/Hdoc1509/tree-sitter-gh-actions-expressions",
+          files = { "src/parser.c" },
+          branch = "release",
+          requires_generate_from_grammar = opts.from_grammar,
+        },
+      }
+    end
+  })
 
   vim.treesitter.query.add_predicate(
     "is-gh-actions-file?",
@@ -32,7 +34,7 @@ function M.setup(opts)
       local filename = vim.api.nvim_buf_get_name(bufnr)
 
       return filename:match("%.github/workflows/.-%.ya?ml") ~= nil
-        or filename:match("tree%-sitter%-gh%-actions%-expressions/README%.md")
+          or filename:match("tree%-sitter%-gh%-actions%-expressions/README%.md")
           ~= nil
     end,
     ---@diagnostic disable-next-line: param-type-mismatch
