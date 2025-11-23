@@ -65,12 +65,12 @@ use({
 })
 ```
 
-### Parser installation for previous `nvim-treesitter` versions
+### Parser installation for previous versions of `nvim-treesitter`
 
 <details>
   <summary>Click to expand</summary>
 
-#### `ensure_install` of `main` branch
+#### `ensure_install` of [`main`][nvim-ts-main] branch
 
 ```lua
 require("nvim-treesitter").setup({
@@ -83,7 +83,7 @@ require("nvim-treesitter").setup({
 })
 ```
 
-#### `configs` module of old `master` branch
+#### `configs` module of old [`master`][nvim-ts-master] branch
 
 ```lua
 require("nvim-treesitter.configs").setup({
@@ -220,6 +220,8 @@ This plugin will follow changes of `tree-sitter-gh-actions-expressions`:
 [json]: https://github.com/tree-sitter/tree-sitter-json
 [yaml]: https://github.com/tree-sitter-grammars/tree-sitter-yaml
 [nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
+[nvim-ts-main]: https://github.com/nvim-treesitter/nvim-treesitter/tree/main
+[nvim-ts-master]: https://github.com/nvim-treesitter/nvim-treesitter/tree/master
 [nodejs]: https://nodejs.org/en/download
 [tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/tree/master/crates/cli
 [lspconfig]: (https://github.com/neovim/nvim-lspconfig)
