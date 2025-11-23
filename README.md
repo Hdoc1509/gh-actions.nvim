@@ -23,6 +23,9 @@ in Neovim.
 
 ## Install
 
+> [!NOTE]
+> These snippets are for neovim >= 0.11.0
+
 ### [`lazy.nvim`](https://github.com/folke/lazy.nvim)
 
 ```lua
@@ -72,6 +75,9 @@ use({
 
 #### `ensure_install` of [`main`][nvim-ts-main] branch
 
+> [!NOTE]
+> This snippet is for neovim >= 0.11.0.
+
 ```lua
 require("nvim-treesitter").setup({
   ensure_install = {
@@ -84,6 +90,9 @@ require("nvim-treesitter").setup({
 ```
 
 #### `configs` module of old [`master`][nvim-ts-master] branch
+
+> [!NOTE]
+> This snippet is for neovim >= 0.9.0.
 
 ```lua
 require("nvim-treesitter.configs").setup({
