@@ -73,7 +73,7 @@ use({
 #### `ensure_install` of [`main`][nvim-ts-main] branch
 
 > [!NOTE]
-> This snippet is for neovim >= 0.11.0. See [Minit README](./minit/README.md)
+> This snippet is for neovim >= 0.11.0. See [Minit README](./minit/README.md#nvim-ts-main-ensure-installlua)
 > for some details about possible compatibility for neovim 0.10.
 
 ```lua
