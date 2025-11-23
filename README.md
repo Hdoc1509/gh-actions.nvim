@@ -3,7 +3,7 @@
 Plugin that improves support for [Github Actions][gh-actions-docs] files
 in Neovim.
 
-![Github Actions Expression syntax highlight](https://github.com/user-attachments/assets/1d098353-a22d-411c-8a4b-1ad97f64132a)
+![Github Actions Expression syntax highlight](https://i.imgur.com/hE9jucZ.png)
 
 ## Features
 
