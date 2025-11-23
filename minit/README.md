@@ -26,4 +26,4 @@ Until commit: 73adbe597e8350cdf2773e524eb2199841ea2ab6
 ## nvim-ts-master.lua
 
 - Neovim >= 0.10.0 from commit: d740b0ad9244265358ea28211a84e6093025adee
-- Neovim >= 0.9.0 until commit: 377039daa260b71f304c881d1b21d643c501a261
+- Neovim 0.9.0 until commit: 377039daa260b71f304c881d1b21d643c501a261
