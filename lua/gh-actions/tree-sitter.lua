@@ -10,7 +10,9 @@ local predicate_options = has_v_0_10 and {} or nil
 
 ---@param opts? GhActionsOpts
 function M.setup(opts)
-  -- NOTE: allow a generic table instead?
+  -- TODO: allow a generic table instead. this will allow to override any option
+  -- from `install_info` table. available options will depend on version of
+  -- `nvim-treesitter`
   opts = vim.tbl_deep_extend("force", { from_grammar = false }, opts or {})
 
   local ts_parsers = require("nvim-treesitter.parsers")
@@ -32,14 +34,17 @@ function M.setup(opts)
     parser_configs.gh_actions_expressions = { install_info = install_info }
   elseif ts_parsers.configs ~= nil then
     -- reference: https://github.com/nvim-treesitter/nvim-treesitter/commit/692b051b09935653befdb8f7ba8afdb640adf17b
-    ts_parsers.configs.gh_actions_expression = { install_info = install_info }
+    ts_parsers.configs.gh_actions_expressions =
+      -- NOTE: set `tier = 1` once parser include wasm artifacts in its releases?
+      { install_info = install_info, tier = 3 }
   else
     -- reference: https://github.com/nvim-treesitter/nvim-treesitter/commit/c17de5689045f75c6244462182ae3b4b62df02d9
     vim.api.nvim_create_autocmd("User", {
       pattern = "TSUpdate",
       callback = function()
         require("nvim-treesitter.parsers").gh_actions_expressions =
-          { install_info = install_info }
+          -- NOTE: set `tier = 1` once parser include wasm artifacts in its releases?
+          { install_info = install_info, tier = 3 }
       end,
     })
   end
