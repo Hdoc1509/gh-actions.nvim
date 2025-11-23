@@ -70,9 +70,6 @@ use({
 
 ### Parser installation for previous versions of `nvim-treesitter`
 
-<details>
-  <summary>Click to expand</summary>
-
 #### `ensure_install` of [`main`][nvim-ts-main] branch
 
 > [!NOTE]
@@ -105,8 +102,6 @@ require("nvim-treesitter.configs").setup({
   }
 })
 ```
-
-</details>
 
 ## `is-gh-actions-file?` predicate
 
@@ -239,5 +234,3 @@ This plugin will follow changes of `tree-sitter-gh-actions-expressions`:
 [vim-lsp-config]: https://neovim.io/doc/user/lsp.html#lsp-config
 [rtp]: https://neovim.io/doc/user/options.html#'runtimepath'
 [ts-query-ls]: https://github.com/ribru17/ts_query_ls
-
-<!-- markdownlint-disable-file MD033 -->
