@@ -76,7 +76,38 @@ body:
       label: Repro
       description: Minimal `init.lua` to reproduce this issue. Save as `repro.lua` and run with `nvim --clean -u repro.lua`. Check examples in [`minit` folder](https://github.com/Hdoc1509/gh-actions.nvim/tree/master/minit).
       value: |
-        -- NOTE: pick a template from `minit` folder and use it here
+        --# selene: allow(mixed_table)
+        -- BOOTSTRAP -- DO NOT CHANGE
+        local bootstrap_cmd =
+          "curl -s https://raw.githubusercontent.com/folke/lazy.nvim/main/bootstrap.lua"
+        vim.env.LAZY_STDPATH = "~/.repro/gh-actions.nvim"
+        load(vim.fn.system(bootstrap_cmd))()
+        -- BOOTSTRAP -- DO NOT CHANGE
+
+        -- NOTE: update config below to match your use case
+        require("lazy.minit").repro({
+          spec = {
+            {
+              "nvim-treesitter/nvim-treesitter",
+              branch = '<branch>',
+              lazy = false,
+              build = ':TSUpdate',
+              -- commit = '<commit-hash>',
+              dependencies = {
+                "Hdoc1509/gh-actions.nvim",
+                -- branch = "branch",
+                -- version = '*',
+              },
+              config = function()
+                require('gh-actions.tree-sitter').setup({
+                  -- your options
+                })
+
+                -- nvim-treesitter setup here. see examples of `minit` folder
+              end,
+            },
+          },
+        })
       render: lua
     validations:
       required: true
