@@ -23,7 +23,6 @@ require("lazy.minit").repro({
           "Hdoc1509/gh-actions.nvim",
           -- branch = "branch",
           -- version = '*',
-          dir = '~/dev/nvim-plugins/gh-actions.nvim',
         },
       },
       config = function()
