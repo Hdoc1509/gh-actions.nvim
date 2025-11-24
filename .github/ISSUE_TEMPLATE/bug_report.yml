@@ -54,8 +54,8 @@ body:
         1.
         2.
         3.
-      validations:
-        required: true
+    validations:
+      required: true
 
   - type: textarea
     attributes:
@@ -78,5 +78,5 @@ body:
       value: |
         -- NOTE: pick a template from `minit` folder and use it here
       render: lua
-      validations:
-        required: true
+    validations:
+      required: true
