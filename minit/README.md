@@ -2,7 +2,7 @@
 
 ## nvim-ts-main.lua
 
-- Neovim >= 0.11.0 from commit: c17de5689045f75c6244462182ae3b4b62df02d9
+From commit: 522e0c6991c4852be9539dfe0d9f19eae998dfe6
 
 ## nvim-ts-main-ensure-install.lua
 
