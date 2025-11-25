@@ -2,14 +2,14 @@
 
 ## nvim-ts-main.lua
 
-From commit: 522e0c6991c4852be9539dfe0d9f19eae998dfe6
+From commit: [522e0c6991c4852be9539dfe0d9f19eae998dfe6](https://github.com/nvim-treesitter/nvim-treesitter/tree/522e0c6991c4852be9539dfe0d9f19eae998dfe6)
 
 ## nvim-ts-main-ensure-install.lua
 
-Until commit: 73adbe597e8350cdf2773e524eb2199841ea2ab6
+Until commit: [73adbe597e8350cdf2773e524eb2199841ea2ab6](https://github.com/nvim-treesitter/nvim-treesitter/tree/73adbe597e8350cdf2773e524eb2199841ea2ab6)
 
-- Neovim >= 0.11.0 from commit: a2841d29d73db53e4d9767e012ddd5da39898a42
-- Neovim >= 0.10.0 from commit: 0bb981c87604200df6c8fb81e5a411101bdf93af
+- Neovim >= 0.11.0 from commit: [a2841d29d73db53e4d9767e012ddd5da39898a42](https://github.com/nvim-treesitter/nvim-treesitter/tree/a2841d29d73db53e4d9767e012ddd5da39898a42)
+- Neovim >= 0.10.0 from commit: [0bb981c87604200df6c8fb81e5a411101bdf93af](https://github.com/nvim-treesitter/nvim-treesitter/tree/0bb981c87604200df6c8fb81e5a411101bdf93af)
 
 ### Known issues
 
@@ -25,5 +25,5 @@ Until commit: 73adbe597e8350cdf2773e524eb2199841ea2ab6
 
 ## nvim-ts-master.lua
 
-- Neovim >= 0.10.0 from commit: d740b0ad9244265358ea28211a84e6093025adee
-- Neovim 0.9.0 until commit: 377039daa260b71f304c881d1b21d643c501a261
+- Neovim >= 0.10.0 from commit: [d740b0ad9244265358ea28211a84e6093025adee](https://github.com/nvim-treesitter/nvim-treesitter/tree/d740b0ad9244265358ea28211a84e6093025adee)
+- Neovim 0.9.0 until commit: [377039daa260b71f304c881d1b21d643c501a261](https://github.com/nvim-treesitter/nvim-treesitter/tree/377039daa260b71f304c881d1b21d643c501a261)
