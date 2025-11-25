@@ -23,7 +23,7 @@ in Neovim.
 
 ## Install
 
-> [!NOTE]
+> [!IMPORTANT]
 > These snippets are for neovim >= 0.11.0
 
 ### [`lazy.nvim`](https://github.com/folke/lazy.nvim)
@@ -72,7 +72,7 @@ use({
 
 #### `ensure_install` of [`main`][nvim-ts-main-ensure-install] branch
 
-> [!NOTE]
+> [!IMPORTANT]
 > This snippet is for neovim >= 0.11.0. See [Minit README](./minit/README.md#nvim-ts-main-ensure-installlua)
 > for some details about possible compatibility for neovim 0.10.
 
@@ -89,7 +89,7 @@ require("nvim-treesitter").setup({
 
 #### `configs` module of old [`master`][nvim-ts-master] branch
 
-> [!NOTE]
+> [!IMPORTANT]
 > This snippet is for neovim >= 0.9.0.
 
 ```lua
