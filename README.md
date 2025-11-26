@@ -216,7 +216,9 @@ If you found the following error:
    `gh-actions.tree-sitter` module:
 
    ```lua
-   require("gh-actions.tree-sitter").setup({ from_grammar = true })
+   require("gh-actions.tree-sitter").setup({
+     from_grammar = true
+   })
    ```
 
 3. Reload your neovim config.
