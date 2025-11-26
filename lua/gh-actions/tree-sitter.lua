@@ -44,24 +44,27 @@ function M.setup(opts)
     requires_generate_from_grammar = opts.from_grammar,
   }
 
+  local parser_info = {
+    install_info = install_info,
+    maintainers = { "@Hdoc1509" },
+    -- NOTE: set `tier = 1` once parser include wasm artifacts in its releases?
+    tier = 3,
+  }
+
   if ts_parsers.get_parser_configs ~= nil then
     -- old `master` branch:
     local parser_configs = ts_parsers.get_parser_configs()
     ---@diagnostic disable-next-line: inject-field
-    parser_configs.gh_actions_expressions = { install_info = install_info }
+    parser_configs.gh_actions_expressions = parser_info
   elseif ts_parsers.configs ~= nil then
     -- reference: https://github.com/nvim-treesitter/nvim-treesitter/commit/692b051b09935653befdb8f7ba8afdb640adf17b
-    ts_parsers.configs.gh_actions_expressions =
-      -- NOTE: set `tier = 1` once parser include wasm artifacts in its releases?
-      { install_info = install_info, tier = 3 }
+    ts_parsers.configs.gh_actions_expressions = parser_info
   else
     -- reference: https://github.com/nvim-treesitter/nvim-treesitter/commit/c17de5689045f75c6244462182ae3b4b62df02d9
     vim.api.nvim_create_autocmd("User", {
       pattern = "TSUpdate",
       callback = function()
-        require("nvim-treesitter.parsers").gh_actions_expressions =
-          -- NOTE: set `tier = 1` once parser include wasm artifacts in its releases?
-          { install_info = install_info, tier = 3 }
+        require("nvim-treesitter.parsers").gh_actions_expressions = parser_info
       end,
     })
   end
