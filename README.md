@@ -116,7 +116,7 @@ require("nvim-treesitter.configs").setup({
   path = nil,
   -- Remote url to `tree-sitter-gh-actions-expressions`
   url = "https://github.com/Hdoc1509/tree-sitter-gh-actions-expressions",
-  -- Version of or commit of `tree-sitter-gh-actions-expressions`
+  -- Version or commit of `tree-sitter-gh-actions-expressions`
   revision = nil,
   -- Branch of `tree-sitter-gh-actions-expressions`
   branch = "release",
