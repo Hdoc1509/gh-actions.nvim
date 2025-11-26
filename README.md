@@ -103,6 +103,26 @@ require("nvim-treesitter.configs").setup({
 })
 ```
 
+## Default configuration
+
+### `gh-actions.tree-sitter` setup
+
+```lua
+---@type GHActions.TS.Opts
+{
+  -- Whether to `generate` files from the grammar before building it
+  from_grammar = nil,
+  -- Path to local `tree-sitter-gh-actions-expressions`.
+  path = nil,
+  -- Remote url to `tree-sitter-gh-actions-expressions`
+  url = "https://github.com/Hdoc1509/tree-sitter-gh-actions-expressions",
+  -- Version of or commit of `tree-sitter-gh-actions-expressions`
+  revision = nil,
+  -- Branch of `tree-sitter-gh-actions-expressions`
+  branch = "release",
+}
+```
+
 ## `is-gh-actions-file?` predicate
 
 Check if the buffer matches the pattern `.github/workflows/*.ya?ml`.

@@ -5,23 +5,40 @@ local M = {}
 local has_v_0_10 = vim.fn.has("nvim-0.10") == 1
 local predicate_options = has_v_0_10 and {} or nil
 
----@class GhActionsOpts
+---@class GHActions.TS.Opts
+---Whether to `generate` files from the grammar before building it
 ---@field from_grammar? boolean
+---Path to local `tree-sitter-gh-actions-expressions`. If set, `url`, `revision` and `branch` options are ignored
+---@field path? string
+---Remote url to `tree-sitter-gh-actions-expressions`
+---@field url? string
+---Version or commit of `tree-sitter-gh-actions-expressions`. If set, `branch` option is ignored.
+---@field revision? string
+---Branch of `tree-sitter-gh-actions-expressions` different from `release`
+---@field branch? string
 
----@param opts? GhActionsOpts
+---@type GHActions.TS.Opts
+local default_opts = {
+  url = "https://github.com/Hdoc1509/tree-sitter-gh-actions-expressions",
+  -- TODO: set default `branch` option to `master` once `release` branch has
+  -- been deleted from tree-sitter-gh-actions-expressions
+  branch = "release",
+}
+
+---@param opts? GHActions.TS.Opts
 function M.setup(opts)
-  -- TODO: allow a generic table instead. this will allow to override any option
-  -- from `install_info` table. available options will depend on version of
-  -- `nvim-treesitter`
-  opts = vim.tbl_deep_extend("force", { from_grammar = false }, opts or {})
+  opts = vim.tbl_deep_extend("force", default_opts, opts or {})
 
   local ts_parsers = require("nvim-treesitter.parsers")
   local install_info = {
-    url = "https://github.com/Hdoc1509/tree-sitter-gh-actions-expressions",
+    url = opts.path or opts.url,
+    path = opts.path,
     -- compatibility prior to removal of `files` option:
     -- https://github.com/nvim-treesitter/nvim-treesitter/commit/214cfcf851d95a4c4f2dc7526b95ce9d31c88a76
     files = { "src/parser.c" },
-    branch = "release",
+    branch = opts.branch,
+    revision = opts.revision,
+    generate = opts.from_grammar,
     -- compatibility prior to disuse of `requires_generate_from_grammar` option:
     -- https://github.com/nvim-treesitter/nvim-treesitter/commit/c70daa36dcc2fdae113637fba76350daaf62dba5
     requires_generate_from_grammar = opts.from_grammar,
