@@ -76,14 +76,14 @@ use({
 > This snippet is for neovim >= 0.11.0. See [Minit README](./minit/README.md#nvim-ts-main-ensure-installlua)
 > for some details about possible compatibility for neovim 0.10.
 
+Use `install` module instead:
+
 ```lua
-require("nvim-treesitter").setup({
-  ensure_install = {
-    "gh_actions_expressions", -- required
-    "gitignore", -- optional
-    "json", -- optional
-    "yaml", -- required
-  }
+require("nvim-treesitter.install").install({
+  "gh_actions_expressions", -- required
+  "gitignore", -- optional
+  "json", -- optional
+  "yaml", -- required
 })
 ```
 

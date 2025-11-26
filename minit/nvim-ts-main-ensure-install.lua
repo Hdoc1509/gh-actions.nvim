@@ -29,9 +29,9 @@ require("lazy.minit").repro({
       config = function()
         require("gh-actions.tree-sitter").setup()
 
-        ---@diagnostic disable-next-line: redundant-parameter
-        require("nvim-treesitter").setup({
-          ensure_install = { "gh_actions_expressions", "yaml" },
+        require("nvim-treesitter.install").install({
+          "gh_actions_expressions",
+          "yaml",
         })
 
         -- ensure directory for parsers and queries in `rtp` after first
