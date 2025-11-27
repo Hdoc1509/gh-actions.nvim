@@ -1,5 +1,15 @@
 # gh-actions.nvim
 
+## 0.2.0
+
+### Minor Changes
+
+- Allow customization of `install_info` for parser ([#4](https://github.com/Hdoc1509/gh-actions.nvim/pull/4))
+
+### Patch Changes
+
+- Add parser tier ([#4](https://github.com/Hdoc1509/gh-actions.nvim/pull/4))
+
 ## 0.1.1
 
 ### Patch Changes
