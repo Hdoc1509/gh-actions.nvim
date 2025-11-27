@@ -76,14 +76,14 @@ use({
 > This snippet is for neovim >= 0.11.0. See [Minit README](./minit/README.md#nvim-ts-main-ensure-installlua)
 > for some details about possible compatibility for neovim 0.10.
 
+Use `install` module instead:
+
 ```lua
-require("nvim-treesitter").setup({
-  ensure_install = {
-    "gh_actions_expressions", -- required
-    "gitignore", -- optional
-    "json", -- optional
-    "yaml", -- required
-  }
+require("nvim-treesitter.install").install({
+  "gh_actions_expressions", -- required
+  "gitignore", -- optional
+  "json", -- optional
+  "yaml", -- required
 })
 ```
 
@@ -101,6 +101,26 @@ require("nvim-treesitter.configs").setup({
     "yaml", -- required
   }
 })
+```
+
+## Default configuration
+
+### `gh-actions.tree-sitter` setup
+
+```lua
+---@type GHActions.TS.Opts
+{
+  -- Whether to `generate` files from the grammar before building it
+  from_grammar = nil,
+  -- Path to local `tree-sitter-gh-actions-expressions`.
+  path = nil,
+  -- Remote url to `tree-sitter-gh-actions-expressions`
+  url = "https://github.com/Hdoc1509/tree-sitter-gh-actions-expressions",
+  -- Version or commit of `tree-sitter-gh-actions-expressions`
+  revision = nil,
+  -- Branch of `tree-sitter-gh-actions-expressions`
+  branch = "release",
+}
 ```
 
 ## `is-gh-actions-file?` predicate
@@ -169,8 +189,8 @@ vim.lsp.enable('ts_query_ls')
 ## Troubleshooting
 
 > [!IMPORTANT]
-> Be sure to run `:checkhealth vim.treesitter` before checking the following
-> errors.
+> Be sure to run `:checkhealth vim.treesitter` and
+> `:checkhealth nvim-treesitter` before checking the following errors.
 
 ### Incompatible ABI version
 
@@ -196,7 +216,9 @@ If you found the following error:
    `gh-actions.tree-sitter` module:
 
    ```lua
-   require("gh-actions.tree-sitter").setup({ from_grammar = true })
+   require("gh-actions.tree-sitter").setup({
+     from_grammar = true
+   })
    ```
 
 3. Reload your neovim config.

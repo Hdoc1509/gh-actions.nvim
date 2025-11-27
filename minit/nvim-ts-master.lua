@@ -23,7 +23,7 @@ require("lazy.minit").repro({
       },
       config = function()
         require("gh-actions.tree-sitter").setup({
-          from_grammar = true,
+          from_grammar = vim.fn.has("nvim-0.11") == 0,
         })
 
         ---@diagnostic disable-next-line: missing-fields
