@@ -212,19 +212,18 @@ If you found the following error:
    - [`Node.js`][nodejs]
    - [`tree-sitter cli`][tree-sitter-cli]
 
-2. Add the `from_grammar` option to the `setup` function of the
-   `gh-actions.tree-sitter` module:
+2. Run `:TSInstallFromGrammar gh_actions_expressions` to re-install the parser
+   with the correct ABI version.
 
-   ```lua
-   require("gh-actions.tree-sitter").setup({
-     from_grammar = true
-   })
-   ```
+It's also recommended to add the `from_grammar` option to the `setup` of the
+`gh-actions.tree-sitter` module in order to avoid the need to run
+`:TSInstallFromGrammar` every time you update `nvim-treesitter`:
 
-3. Reload your neovim config.
-
-4. Run `:TSInstall gh_actions_expressions` to re-install the parser with the
-   correct ABI version.
+```lua
+require("gh-actions.tree-sitter").setup({
+  from_grammar = true
+})
+```
 
 ### Errors not related to neovim
 
