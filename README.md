@@ -164,9 +164,16 @@ The `gh-actions.ts-query-ls` module exports a configuration for
 [`ts_query_ls`][ts-query-ls] server in order to register the custom
 `is-gh-actions-file?` predicate used by this plugin.
 
+> [!IMPORTANT]
+> This is only needed if you will use the predicates defined by this plugin in
+> your queries and you have set the [`valid_predicates` setting for
+> `ts_query_ls`](https://github.com/ribru17/ts_query_ls#valid_predicates).
+
+---
+
 > [!NOTE]
-> This is only needed if you will use the `is-gh-actions-file?` predicate in
-> your queries.
+> You can check [my config for `ts_query_ls`][nvim-config-ts-query-ls] for
+> reference.
 
 ### [nvim-lspconfig][lspconfig] + neovim < 0.11
 
@@ -174,10 +181,10 @@ The `gh-actions.ts-query-ls` module exports a configuration for
 > Be sure to set `gh-actions.nvim` as a dependency
 
 ```lua
-local lspconfig = require('lspconfig')
-local gh_actions = require('gh-actions.ts-query-ls')
+local lspconfig = require("lspconfig")
+local gh_actions = require("gh-actions.ts-query-ls")
 
-lspconfig.ts_query_ls.setup(vim.tbl_deep_extend('force', {
+lspconfig.ts_query_ls.setup(vim.tbl_deep_extend("force", {
   -- your settings
 }, gh_actions.expressions))
 ```
@@ -186,35 +193,42 @@ lspconfig.ts_query_ls.setup(vim.tbl_deep_extend('force', {
 
 <!-- TODO: need to check if it works correctlty -->
 
-```lua
-local gh_actions = require('gh-actions.ts-query-ls')
+> [!IMPORTANT]
+> Be sure to load `gh-actions.nvim` before
 
-vim.lsp.config('ts_query_ls', vim.tbl_deep_extend('force', {
-  -- your settings
-}, gh_actions.expressions))
-vim.lsp.enable('ts_query_ls')
+```lua
+local gh_actions = require("gh-actions.ts-query-ls")
+
+vim.lsp.config(
+  "ts_query_ls",
+  vim.tbl_deep_extend("force", {
+    -- your settings
+  }, gh_actions.expressions)
+)
+vim.lsp.enable("ts_query_ls")
 ```
 
-### `<rtp>/lsp/ts_query_ls.lua` + neovim >= 0.11
+### `after/lsp/ts_query_ls.lua` + neovim >= 0.11
 
 <!-- TODO: need to check if it works correctlty -->
 
-<!-- prettier-ignore -->
-> [!IMPORTANT]
-> `<rtp>` is your [`runtimepath`][rtp]
-
 ```lua
-local gh_actions = require('gh-actions.ts-query-ls')
+local gh_actions = require("gh-actions.ts-query-ls")
 
-return vim.tbl_deep_extend('force', {
+return vim.tbl_deep_extend("force", {
   -- your settings
 }, gh_actions.expressions)
 ```
 
+> [!IMPORTANT]
+> Be sure to load `vim-map-side.nvim` before calling `vim.lsp.enable()`
+>
+> See [LSP config merge](https://neovim.io/doc/user/lsp.html#lsp-config-merge)
+
 Then, in your `init.lua`:
 
 ```lua
-vim.lsp.enable('ts_query_ls')
+vim.lsp.enable("ts_query_ls")
 ```
 
 ## Troubleshooting
@@ -252,7 +266,7 @@ It's also recommended to add the `from_grammar` option to the `setup` of the
 
 ```lua
 require("gh-actions.tree-sitter").setup({
-  from_grammar = true
+  from_grammar = true,
 })
 ```
 
@@ -284,7 +298,7 @@ This plugin will follow changes of `tree-sitter-gh-actions-expressions`:
 [lspconfig]: (https://github.com/neovim/nvim-lspconfig)
 [gh-actions-docs]: https://docs.github.com/en/actions/reference/workflows-and-actions
 [vim-lsp-config]: https://neovim.io/doc/user/lsp.html#lsp-config
-[rtp]: https://neovim.io/doc/user/options.html#'runtimepath'
+[nvim-config-ts-query-ls]: https://github.com/Hdoc1509/nvim-config/blob/master/lua/plugins/lsp/servers/ts_query_ls/init.lua
 [ts-query-ls]: https://github.com/ribru17/ts_query_ls
 
 <!-- markdownlint-disable-file MD033 -->
