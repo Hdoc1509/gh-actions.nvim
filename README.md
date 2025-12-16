@@ -23,15 +23,20 @@ in Neovim.
 
 ## Install
 
-> [!IMPORTANT]
-> These snippets are for neovim >= 0.11.0
+Installation examples for [`lazy.nvim`](https://github.com/folke/lazy.nvim) and
+[`packer.nvim`](https://github.com/wbthomason/packer.nvim):
 
-### [`lazy.nvim`](https://github.com/folke/lazy.nvim)
+> [!IMPORTANT]
+> This snippet is for neovim >= 0.11.0
 
 ```lua
 {
   "nvim-treesitter/nvim-treesitter",
+  lazy = false, -- if using `lazy.nvim`
   branch = 'main',
+  -- `run` instead of `build` if using `packer.nvim`
+  build = ':TSUpdate',
+  -- `requires` instead of `dependencies` if using `packer.nvim`
   dependencies = { "Hdoc1509/gh-actions.nvim" },
   config = function()
     -- NOTE: register parser before installation
@@ -47,27 +52,6 @@ in Neovim.
 }
 ```
 
-### [`packer.nvim`](https://github.com/wbthomason/packer.nvim)
-
-```lua
-use({
-  "nvim-treesitter/nvim-treesitter",
-  branch = 'main',
-  requires = { "Hdoc1509/gh-actions.nvim" },
-  config = function()
-    -- NOTE: register parser before installation
-    require("gh-actions.tree-sitter").setup()
-
-    require("nvim-treesitter").install({
-      "gh_actions_expressions", -- required
-      "gitignore", -- optional
-      "json", -- optional
-      "yaml", -- required
-    })
-  end,
-})
-```
-
 ### Parser installation for previous versions of `nvim-treesitter`
 
 #### `ensure_install` of [`main`][nvim-ts-main-ensure-install] branch
@@ -76,32 +60,74 @@ use({
 > This snippet is for neovim >= 0.11.0. See [Minit README](./minit/README.md#nvim-ts-main-ensure-installlua)
 > for some details about possible compatibility for neovim 0.10.
 
+<details>
+  <summary>Installation example</summary>
+
 Use `install` module instead:
 
 ```lua
-require("nvim-treesitter.install").install({
-  "gh_actions_expressions", -- required
-  "gitignore", -- optional
-  "json", -- optional
-  "yaml", -- required
-})
+{
+  "nvim-treesitter/nvim-treesitter",
+  lazy = false, -- if using `lazy.nvim`
+  branch = "main",
+  -- `run` instead of `build` if using `packer.nvim`
+  build = ":TSUpdate",
+  -- prior or equal to:
+  commit = "73adbe597e8350cdf2773e524eb2199841ea2ab6",
+  -- posterior or equal to:
+  -- commit = "0bb981c87604200df6c8fb81e5a411101bdf93af",
+  -- `requires` instead of `dependencies` if using `packer.nvim`
+  dependencies = { "Hdoc1509/gh-actions.nvim" },
+  config = function()
+    -- NOTE: register parser before installation
+    require("gh-actions.tree-sitter").setup()
+
+    require("nvim-treesitter.install").install({
+      "gh_actions_expressions", -- required
+      "gitignore", -- optional
+      "json", -- optional
+      "yaml", -- required
+    })
+  end,
+}
 ```
+
+</details>
 
 #### `configs` module of old [`master`][nvim-ts-master] branch
 
 > [!IMPORTANT]
 > This snippet is for neovim >= 0.9.0.
 
+<details>
+  <summary>Installation example</summary>
+
 ```lua
-require("nvim-treesitter.configs").setup({
-  ensure_installed = {
-    "gh_actions_expressions", -- required
-    "gitignore", -- optional
-    "json", -- optional
-    "yaml", -- required
-  }
-})
+{
+  "nvim-treesitter/nvim-treesitter",
+  lazy = false, -- if using `lazy.nvim`
+  branch = "master",
+  -- `run` instead of `build` if using `packer.nvim`
+  build = ":TSUpdate",
+  -- `requires` instead of `dependencies` if using `packer.nvim`
+  dependencies = { "Hdoc1509/gh-actions.nvim" },
+  config = function()
+    -- NOTE: register parser before installation
+    require("gh-actions.tree-sitter").setup()
+
+    require("nvim-treesitter.configs").setup({
+      ensure_installed = {
+        "gh_actions_expressions", -- required
+        "gitignore", -- optional
+        "json", -- optional
+        "yaml", -- required
+      },
+    })
+  end,
+}
 ```
+
+</details>
 
 ## Default configuration
 
@@ -255,3 +281,5 @@ This plugin will follow changes of `tree-sitter-gh-actions-expressions`:
 [vim-lsp-config]: https://neovim.io/doc/user/lsp.html#lsp-config
 [rtp]: https://neovim.io/doc/user/options.html#'runtimepath'
 [ts-query-ls]: https://github.com/ribru17/ts_query_ls
+
+<!-- markdownlint-disable-file MD033 -->
