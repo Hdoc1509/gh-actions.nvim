@@ -133,6 +133,9 @@ Use `install` module instead:
 
 ### `gh-actions.tree-sitter` setup
 
+<details>
+  <summary>Default configuration</summary>
+
 ```lua
 ---@type GHActions.TS.Opts
 {
@@ -148,6 +151,8 @@ Use `install` module instead:
   branch = "release",
 }
 ```
+
+</details>
 
 ## `is-gh-actions-file?` predicate
 
